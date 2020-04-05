@@ -16,8 +16,6 @@ on:
       - master
     schedule:
       - cron: 0 20 * * *
-    release:
-      types: [published]
 
 jobs:
 
@@ -125,11 +123,6 @@ jobs:
           EOF
           # 常用LuCI插件选择:
           cat >> .config <<EOF
-          CONFIG_PACKAGE_luci-app-airplay2=n
-          CONFIG_PACKAGE_luci-app-autoreboot=n
-          CONFIG_PACKAGE_luci-app-ipsec-vpnd=n
-          CONFIG_PACKAGE_luci-app-app-xlnetacc=n
-          CONFIG_PACKAGE_luci-app-app-zerotier=n
           CONFIG_PACKAGE_luci-app-accesscontrol=y
           CONFIG_PACKAGE_luci-app-adbyby-plus=y
           CONFIG_PACKAGE_luci-app-arpbind=y

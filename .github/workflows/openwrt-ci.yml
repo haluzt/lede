@@ -51,13 +51,6 @@ jobs:
           # ln -s /mnt/openwrt/feeds ./feeds
           # ln -s /mnt/openwrt/staging_dir ./staging_dir
           df -h
-      - name: 网易云
-        run: |
-          cd package
-          git clone https://github.com/project-openwrt/luci-app-unblockneteasemusic.git
-          cd ..
-          make menuconfig
-          make package/luci-app-unblockneteasemusic/compile V=s
       - name: Update feeds
         run: |
           ./scripts/feeds update -a
@@ -151,7 +144,6 @@ jobs:
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
           CONFIG_PACKAGE_luci-app-transmission=y           
           CONFIG_PACKAGE_luci-app-ttyd=y
-          # CONFIG_PACKAGE_luci-app-unblockmusic=y
           CONFIG_PACKAGE_luci-app-upnp=y
           CONFIG_PACKAGE_luci-app-v2ray-server=y
           CONFIG_PACKAGE_luci-app-vsftpd=y
@@ -171,6 +163,7 @@ jobs:
           CONFIG_PACKAGE_bash=y
           CONFIG_PACKAGE_node=y
           CONFIG_PACKAGE_wget=y
+          CONFIG_PACKAGE_nohup=y
           EOF
           # 取消编译VMware镜像以及镜像填充 (不要删除被缩进的注释符号):
           cat >> .config <<EOF
